@@ -62,17 +62,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="CustomView\ExtensionMethod.cs" />
+    <Compile Include="CustomView\VideoTableCell.cs" />
+    <Compile Include="CustomView\VideoTableCell.designer.cs">
+      <DependentUpon>VideoTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomView\VideoTableSource.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <None Include="Info.plist" />
+    <InterfaceDefinition Include="CustomView\VideoTableCell.xib" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstViewController.cs" />
-    <Compile Include="FirstViewController.designer.cs">
-      <DependentUpon>FirstViewController.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="SecondViewController.cs" />
     <Compile Include="SecondViewController.designer.cs">
       <DependentUpon>SecondViewController.cs</DependentUpon>
@@ -134,6 +141,10 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -147,6 +158,12 @@
     <BundleResource Include="Resources\Images\home.png" />
     <BundleResource Include="Resources\Images\home%402x.png" />
     <BundleResource Include="Resources\Images\home%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoPlayer.Service\VideoPlayer.Service.csproj">
+      <Project>{be354363-58fe-4248-98de-750fbeb35fe6}</Project>
+      <Name>VideoPlayer.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

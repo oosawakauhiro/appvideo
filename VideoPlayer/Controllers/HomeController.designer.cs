@@ -10,11 +10,20 @@ using System.CodeDom.Compiler;
 
 namespace VideoPlayer
 {
-    [Register ("FirstViewController")]
-    partial class FirstViewController
+    [Register ("HomeController")]
+    partial class HomeController
     {
         void ReleaseDesignerOutlets ()
         {
+            if (LblTabGame != null) {
+                LblTabGame.Dispose ();
+                LblTabGame = null;
+            }
+
+            if (TblVideo != null) {
+                TblVideo.Dispose ();
+                TblVideo = null;
+            }
         }
     }
 }

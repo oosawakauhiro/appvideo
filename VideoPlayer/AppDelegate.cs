@@ -20,6 +20,12 @@ namespace VideoPlayer
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+            UIView statusBar = UIApplication.SharedApplication.ValueForKey(new NSString("statusBar")) as UIView;
+            if (statusBar.RespondsToSelector(new ObjCRuntime.Selector("setBackgroundColor:")))
+            {
+                statusBar.TintColor = UIColor.White;
+            }
+
 
             return true;
         }
