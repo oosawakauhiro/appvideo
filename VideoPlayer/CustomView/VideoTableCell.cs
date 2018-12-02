@@ -23,11 +23,22 @@ namespace VideoPlayer.CustomView
 
         public async Task Update(Video video)
         {
-            LblTitle.Text = video.Title;
-            LblTitle.Lines = 0;
-            LblTitle.SizeToFit();
-            LblTitle.BackgroundColor = UIColor.FromRGBA(0, 0, 0, 0.6f);
+            //    LblTitle.Text = video.Name;
+            //    LblTitle.Lines = 0;
+            //    LblTitle.SizeToFit();
+            //    LblTitle.BackgroundColor = UIColor.FromRGBA(0, 0, 0, 0.6f);
             await Thumbnails.LoadImageFromUriAsync(video.Img);
+            var imgSize = Thumbnails.Image.Size;
+            var frame = Thumbnails.Frame;
+            var height = imgSize.Height / imgSize.Width * frame.Width;
+            frame.Height = height;
+            Thumbnails.Frame = frame;
+            Thumbnails.ContentMode = UIViewContentMode.ScaleAspectFit;
+        }
+
+        public override void PrepareForReuse()
+        {
+            base.PrepareForReuse();
         }
     }
 }

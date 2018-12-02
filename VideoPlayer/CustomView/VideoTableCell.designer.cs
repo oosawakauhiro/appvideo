@@ -15,19 +15,10 @@ namespace VideoPlayer.CustomView
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel LblTitle { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView Thumbnails { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (LblTitle != null) {
-                LblTitle.Dispose ();
-                LblTitle = null;
-            }
-
             if (Thumbnails != null) {
                 Thumbnails.Dispose ();
                 Thumbnails = null;

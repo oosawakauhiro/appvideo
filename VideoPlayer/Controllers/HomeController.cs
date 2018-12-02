@@ -24,7 +24,9 @@ namespace VideoPlayer
         {
             base.ViewDidLoad ();
             View.BackgroundColor = UIColor.FromRGB(63, 63, 63);
-            TblVideo.RowHeight = 170;
+            TblVideo.RowHeight = UITableView.AutomaticDimension;
+            TblVideo.EstimatedRowHeight = 150;
+            //TblVideo.RowHeight = 150;
             TblVideo.RegisterNibForCellReuse(UINib.FromName("VideoTableCell", null), "Cell");
             var data = await new VideoService().GetVideoList();
             TblVideo.Source = new VideoTableSource(data);
